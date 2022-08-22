@@ -67,7 +67,6 @@
           <property name="font">
            <font>
             <pointsize>35</pointsize>
-            <weight>75</weight>
             <bold>true</bold>
            </font>
           </property>
@@ -129,7 +128,6 @@ background-image: url(:/logo/background1.jpg);
             <property name="font">
              <font>
               <pointsize>10</pointsize>
-              <weight>75</weight>
               <bold>true</bold>
              </font>
             </property>
@@ -152,9 +150,15 @@ background-image: url(:/logo/background1.jpg);
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>0</height>
+             </size>
+            </property>
             <property name="font">
              <font>
-              <pointsize>37</pointsize>
+              <pointsize>23</pointsize>
              </font>
             </property>
             <property name="frameShape">
@@ -166,30 +170,30 @@ background-image: url(:/logo/background1.jpg);
            </widget>
           </item>
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_2">
-            <item>
-             <widget class="QPushButton" name="convrt">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="text">
-               <string>Convert</string>
-              </property>
-             </widget>
-            </item>
+           <layout class="QVBoxLayout" name="verticalLayout_5">
             <item>
              <widget class="QPushButton" name="convrtAll">
               <property name="sizePolicy">
-               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                 <horstretch>0</horstretch>
                 <verstretch>0</verstretch>
                </sizepolicy>
               </property>
               <property name="text">
                <string>Convert All</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="convrt">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string>Convert</string>
               </property>
              </widget>
             </item>
@@ -289,7 +293,6 @@ margin-top:0px;</string>
             <property name="font">
              <font>
               <pointsize>10</pointsize>
-              <weight>75</weight>
               <bold>true</bold>
               <stylestrategy>PreferDefault</stylestrategy>
              </font>
@@ -328,6 +331,11 @@ margin-top:0px;</string>
               <height>0</height>
              </size>
             </property>
+            <property name="font">
+             <font>
+              <pointsize>23</pointsize>
+             </font>
+            </property>
             <property name="frameShape">
              <enum>QFrame::Box</enum>
             </property>
@@ -341,7 +349,7 @@ margin-top:0px;</string>
             <item>
              <widget class="QPushButton" name="btnExport">
               <property name="sizePolicy">
-               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                 <horstretch>0</horstretch>
                 <verstretch>0</verstretch>
                </sizepolicy>
@@ -354,7 +362,7 @@ margin-top:0px;</string>
             <item>
              <widget class="QPushButton" name="btnPrint">
               <property name="sizePolicy">
-               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                 <horstretch>0</horstretch>
                 <verstretch>0</verstretch>
                </sizepolicy>

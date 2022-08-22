@@ -80,7 +80,7 @@ DataBundle CharReader::getBrailleChPosLeft(QImage image, QPoint point)
     //bool shouldInCharIdentification = true;
      for(int i=1;i<=6;i++)
      {
-         if(shouldPrint) qDebug()<<printLst[i-1]<<endl;
+         if(shouldPrint) qDebug()<<printLst[i-1]<<Qt::endl;
          DataBundle dataBundle = dotProcessor.searchForBlackDotAndMark(image,tempPoint,_isDebug);
          if(dataBundle.shouldInCharIdentification) shouldInCharCounter++;
          //shouldInCharIdentification = shouldInCharIdentification && dataBundle.shouldInCharIdentification; // if anyone is middle size
@@ -109,7 +109,7 @@ DataBundle CharReader::getBrailleChPosLeft(QImage image, QPoint point)
          }
 
      }
-    if(shouldPrint) qDebug()<<"should in line identification(at least one medium dot): "<<shouldInCharCounter<<endl;
+    if(shouldPrint) qDebug()<<"should in line identification(at least one medium dot): "<<shouldInCharCounter<<Qt::endl;
     DataBundle dataBundle(image);
                 dataBundle.numberOfDotInCh = dotCount;
                 dataBundle.charCenter = QPoint(totalPoint.x()/6,totalPoint.y()/6);

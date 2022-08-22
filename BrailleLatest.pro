@@ -15,15 +15,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 TARGET = Application
-INCLUDEPATH +=  C:\OpenCV\opencv\release\install\include
+INCLUDEPATH +=  E:\opencv-build\install\include
 INCLUDEPATH +=  frontPage
 
-LIBS += C:\OpenCV\opencv\release\bin\libopencv_core452.dll
-LIBS += C:\OpenCV\opencv\release\bin\libopencv_highgui452.dll
-LIBS += C:\OpenCV\opencv\release\bin\libopencv_imgcodecs452.dll
-LIBS += C:\OpenCV\opencv\release\bin\libopencv_imgproc452.dll
-LIBS += C:\OpenCV\opencv\release\bin\libopencv_calib3d452.dll
-LIBS += C:\OpenCV\opencv\release\bin\libopencv_objdetect452.dll
+LIBS += E:\opencv-build\bin\libopencv_core460.dll
+LIBS += E:\opencv-build\bin\libopencv_highgui460.dll
+LIBS += E:\opencv-build\bin\libopencv_imgcodecs460.dll
+LIBS += E:\opencv-build\bin\libopencv_imgproc460.dll
+LIBS += E:\opencv-build\bin\libopencv_calib3d460.dll
+LIBS += E:\opencv-build\bin\libopencv_objdetect460.dll
 
 SOURCES += \
     charreader.cpp \

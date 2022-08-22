@@ -63,9 +63,10 @@ QString UtilFileAndDir::getFileName(QString dir, QString name)
     if (!QDir(dir).exists()) return "";
 
     int i=0;
-    QRegExp rx("([a-zA-Z0-9_ ])+");
-    if(rx.indexIn(name)!=-1)
-        name = rx.capturedTexts().at(0);
+//    QRegExp rx("([a-zA-Z0-9_ ])+");
+//    if(rx.indexIn(name)!=-1)
+//        name = rx.capturedTexts().at(0);
+    name = QFileInfo(name).baseName();
     QString file = dir + "/" + name + ".txt";
     while(QFile(file).exists()){
         i++;

@@ -42,25 +42,25 @@ DataBundle LineIdentifire::getNextChar(QImage image, QPoint startPt)
 DataBundle LineIdentifire::extractChar(QImage &image, QPoint blackPix)
 {   // this function only used by line identification purpose
     if(!(image.pixel(blackPix.x(),blackPix.y())==qRgb(0,0,0))){
-        qDebug()<<"Error: extractChar(): "<<blackPix.x()<<","<<blackPix.y()<<endl;
+        qDebug()<<"Error: extractChar(): "<<blackPix.x()<<","<<blackPix.y()<<Qt::endl;
         return DataBundle();
     }
     DataBundle dataBundle;
     dataBundle = dotProcessor.markDotByPoint(image,blackPix,false);
     if(dataBundle.isVeryLarge || dataBundle.isLargeDot || !dataBundle.shouldInCharIdentification){
 
-        if(shouldPrint) qDebug()<<"extractChar(): "<<"problem with given dot"<<endl;
+        if(shouldPrint) qDebug()<<"extractChar(): "<<"problem with given dot"<<Qt::endl;
         if(dataBundle.isVeryLarge) image = dataBundle.image; // return by ref
         dataBundle.isValidDot = false;
         return dataBundle;
     }
-    if(shouldPrint) qDebug()<<"extractChar(): "<<"no problem with given dot"<<endl;
+    if(shouldPrint) qDebug()<<"extractChar(): "<<"no problem with given dot"<<Qt::endl;
     // okk this dot is almost perfect
 
     dataBundle = findCenter(image,dataBundle.dotCenter);
     if(!dataBundle.isValidCh() || !dataBundle.shouldInCharIdentification) //!dataBundle.isValidDot ||
     {
-        if(shouldPrint) qDebug()<<"extractChar(): "<<"number of dots: "<<dataBundle.numberOfDotInCh<<endl;
+        if(shouldPrint) qDebug()<<"extractChar(): "<<"number of dots: "<<dataBundle.numberOfDotInCh<<Qt::endl;
         dataBundle.isValidDot = false;
         return dataBundle;
     }
@@ -84,9 +84,9 @@ DataBundle LineIdentifire::findCenter(const QImage &image, QPoint cntrBlckDot)
 {   // only used by extract() method
     QPoint leftUpper = QPoint(cntrBlckDot.x()+(_distBetDot.x()/2),cntrBlckDot.y()+_distBetDot.y());
     QPoint rightUpper = QPoint(cntrBlckDot.x()-(_distBetDot.x()/2),cntrBlckDot.y()+_distBetDot.y());
-    if(shouldPrint) qDebug()<<"------------consdering left Upper---------------"<<endl;
+    if(shouldPrint) qDebug()<<"------------consdering left Upper---------------"<<Qt::endl;
      DataBundle dataBundle1 = charReader.getBrailleChPosCenter(image,leftUpper); // they do not modify image
-     if(shouldPrint) qDebug()<<"------------consdering right Upper---------------"<<endl;
+     if(shouldPrint) qDebug()<<"------------consdering right Upper---------------"<<Qt::endl;
      DataBundle dataBundle2 = charReader.getBrailleChPosCenter(image,rightUpper);
      return dataBundle1.numberOfDotInCh>dataBundle2.numberOfDotInCh ? dataBundle1 : dataBundle2;
 }

@@ -13,7 +13,7 @@ DotBoundaryFinder::DotBoundaryFinder(QImage &image)
 QList<int> DotBoundaryFinder::findBoundary(int x, int y)
 {
     if(!isValidAndBlack(x,y)){
-        qDebug()<<"Err from ULBRofDotV4 (x,y): "<<x<<","<<y<<endl;
+        qDebug()<<"Err from ULBRofDotV4 (x,y): "<<x<<","<<y<<Qt::endl;
         return QList<int>()<<0<<0<<0<<0;
     }
     area = 1;

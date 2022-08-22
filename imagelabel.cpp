@@ -53,5 +53,5 @@ void ImageLabel::setScaleFactor(double factor)
 void ImageLabel::scaleImage(double factor)
 {
     scaleFactor *= factor;
-    resize(scaleFactor * pixmap()->size());
+    resize(scaleFactor * pixmap().size());
 }

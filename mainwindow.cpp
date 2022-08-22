@@ -401,7 +401,8 @@ void MainWindow::on_saveFiles()
         if ( file.open(QIODevice::WriteOnly | QIODevice::Text) ) // overriding every time
         {
             QTextStream stream( &file );
-            stream.setCodec("UTF-8");
+//            stream.setCodec("UTF-8");
+            stream.setEncoding(QStringConverter::Utf8);
             if(!binaryFiles) stream<<_banglaText.at(i);
             else stream<<_binText.at(i);
         }
@@ -434,7 +435,8 @@ void MainWindow::on_savePDFFiles()
     QPrinter printer;
     printer.setOutputFormat(QPrinter::PdfFormat);
     printer.setOutputFileName(fileName);
-    printer.setPaperSize(QPrinter::A4);
+//    printer.setPaperSize(QPrinter::A4);
+    printer.setPageSize(QPageSize::A4);
     int startIdx= midList.at(0).row();
     int endIdx = startIdx+midList.count()-1;
 //    qDebug()<<startIdx<<" "<<endIdx<<endl;
@@ -486,7 +488,7 @@ void MainWindow::on_Print()
     }
     //------------------------------------------
     QPrinter printer;
-    printer.setPaperSize(QPrinter::A4);
+    printer.setPageSize(QPageSize::A4);
     int startIdx= midList.at(0).row();
     int endIdx = startIdx+midList.count()-1;
 //    qDebug()<<startIdx<<" "<<endIdx<<endl;
@@ -602,7 +604,8 @@ void MainWindow::loadBanglaText(QString resultTextFile)
 
             line.append("\n\n");
             QTextStream stream(&file);
-            stream.setCodec("UTF-8");
+//            stream.setCodec("UTF-8");
+            stream.setEncoding(QStringConverter::Utf8);
             while (!stream.atEnd())
             {
                 line.append("\t");
@@ -678,10 +681,11 @@ void MainWindow::convertAndSave(QStringList m_openFileList,QImageList m_binImage
 
        bool savedFile = saveBinBrille(binData);
        if(savedFile){
-           QString saveFileName = QFileInfo(m_openFileList.at(index)).fileName();
-           QRegExp rx("([a-zA-Z0-9_ ])+");
-           if(rx.indexIn(saveFileName)!=-1)
-               saveFileName = rx.capturedTexts().at(0);
+           QString saveFileName = QFileInfo(m_openFileList.at(index)).baseName();
+//           QRegExp rx("([a-zA-Z0-9_ ])+");
+//           if(rx.indexIn(saveFileName)!=-1)
+//               saveFileName = rx.capturedTexts().at(0);
+
            saveFileName.append(".txt");
            nameList.append(saveFileName);
            resultModel->setStringList(nameList);
@@ -710,8 +714,8 @@ bool MainWindow::saveBinBrille(QStringList binData)
 //    if(rx.indexIn(saveFileName)!=-1)
 //        saveFileName = rx.capturedTexts().at(0);
 //    saveFileName.append(".txt");
-    //saveFileName = dir+"/"+saveFileName;
-    //QString tempFile=dir+"/"+"binDataFiles"+"/"+saveFileName;
+//    saveFileName = dir+"/"+saveFileName;
+//    QString tempFile=dir+"/"+"binDataFiles"+"/"+saveFileName;
     QString tempFile="bin.txt";
     QFile file( tempFile );
     if ( file.open(QIODevice::ReadWrite | QIODevice::Truncate | QIODevice::Text) ) // overriding every time
