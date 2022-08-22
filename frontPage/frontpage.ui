@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
+    <width>1000</width>
     <height>600</height>
    </rect>
   </property>
@@ -49,11 +49,11 @@
          <widget class="QLabel" name="labelSoftware">
           <property name="font">
            <font>
-            <pointsize>39</pointsize>
+            <pointsize>27</pointsize>
            </font>
           </property>
           <property name="text">
-           <string>BRAILLE</string>
+           <string>Bangla Braille to Text</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -154,28 +154,19 @@
      </item>
      <item>
       <widget class="QLabel" name="labelDescription_2">
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
        <property name="styleSheet">
         <string notr="true">text-align: right;</string>
        </property>
        <property name="text">
-        <string>&lt;h2&gt; Bangla Braille To Text Translator&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;h4&gt; Input: Scanned Braille Image &lt;/h4&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;h4&gt; Output: Corresponding Bangla Text&lt;/h4&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;h4&gt; Input File Format: png, jpg, jpeg&lt;/h4&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;h4&gt; Output File Format: pdf, txt&lt;/h4&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;h4&gt;Supports batch image processing&lt;/h4&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;h4&gt; Can detect joint letters and Bangla numbers&lt;/h4&gt;
-&lt;/li&gt;
-&lt;/ul&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Input:&lt;/span&gt; Scanned Bangla Braille Image (format: jpg, png, jpeg)&lt;/li&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Output:&lt;/span&gt; Corresponding Bangla Text (format: pdf, txt)&lt;/li&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Supports batch image processing&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Can detect joint letters and Bangla numbers &lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="textFormat">
-        <enum>Qt::MarkdownText</enum>
+        <enum>Qt::AutoText</enum>
        </property>
        <property name="margin">
         <number>0</number>

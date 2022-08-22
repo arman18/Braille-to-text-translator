@@ -1,5 +1,6 @@
 ﻿#include "dialog.h"
 #include "ui_dialog.h"
+//#include "ulbrofdot.h"
 #include <QCheckBox>
 #include <QLabel>
 #include <QPushButton>

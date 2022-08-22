@@ -6,46 +6,86 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>583</width>
-    <height>376</height>
+    <width>687</width>
+    <height>614</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>120</x>
-     <y>10</y>
-     <width>351</width>
-     <height>331</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>&lt;h2&gt; User Manuals&lt;/h2&gt;
-&lt;dl&gt;
-&lt;dt&gt;Open Images (CTRL+O):&lt;/dt&gt;
-&lt;dd&gt;Inserts Brand new Image List. Current images will be removed&lt;/dd&gt;
-&lt;dt&gt;Add Images(CTRL+A):&lt;/dt&gt;
-&lt;dd&gt;Insert Images to current image list&lt;/dd&gt;
-&lt;dt&gt;Remove Images:&lt;/dt&gt;
-&lt;dd&gt;Remove images from our current image list&lt;/dd&gt;
-&lt;dt&gt;Select All:&lt;/dt&gt;
-&lt;dd&gt;Selecting all items from current list&lt;/dd&gt;
-&lt;dt&gt;Convert:&lt;/dt&gt;
-&lt;dd&gt;Convert only selected Braille images to its corresponding text&lt;/dd&gt;
-&lt;dt&gt;Convert All:&lt;/dt&gt;
-&lt;dd&gt;Convert all Braille images to its corresponding text&lt;/dd&gt;
-&lt;dt&gt;Export as PDF:&lt;/dt&gt;
-&lt;dd&gt;Export converted Bengali text as Portable Document Format(PDF)&lt;/dd&gt;
-&lt;dt&gt;Export as txt:&lt;/dt&gt;
-&lt;dd&gt;Export converted Bengali text as .txt file&lt;/dd&gt;
-&lt;dt&gt;Print:&lt;/dt&gt;
-&lt;dd&gt;Use printer to print converted text&lt;/dd&gt;
-&lt;/dl&gt;</string>
-   </property>
-  </widget>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <item>
+    <widget class="QLabel" name="label_2">
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;h2 style=&quot; margin-top:16px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:x-large; font-weight:600;&quot;&gt;User Manual&lt;/span&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;b&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Files -&amp;gt; Open Images (CTRL+O):&lt;/span&gt;&lt;/b&gt;&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;
+&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Inserts one or multiple new images and replaces current images&lt;/span&gt;&lt;/p&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+
+&lt;p&gt;&lt;b&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Files -&amp;gt; Add Images(CTRL+A):&lt;/span&gt;&lt;/b&gt;&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;
+&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Insert Images and append to the current image list&lt;/span&gt;&lt;/p&gt; &lt;/ul&gt;&lt;/li&gt;
+&lt;/li&gt;
+&lt;li&gt;
+
+&lt;p&gt;&lt;b&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Files -&amp;gt; Remove Images&lt;/span&gt;&lt;/b&gt;&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;
+&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Remove images from our input image list&lt;/span&gt;&lt;/p&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;&lt;b&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Select All&lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;&lt;/b&gt;&lt;li&gt;
+&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Selecting all items from current list&lt;/span&gt;&lt;/p&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;/li&gt;
+&lt;li&gt;
+
+&lt;p&gt;&lt;b&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Convert&lt;/span&gt;&lt;b&gt;&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;
+&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Convert only selected Braille images to its corresponding text&lt;/span&gt;&lt;/p&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;/li&gt;
+&lt;li&gt;
+
+&lt;p&gt;&lt;b&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Convert All&lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;&lt;/b&gt;&lt;li&gt;
+&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Convert all the input images to its corresponding text without selecting any images&lt;/span&gt;&lt;/p&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;/li&gt;
+&lt;li&gt;
+
+&lt;p&gt;&lt;b&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Export as PDF&lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;&lt;/b&gt;&lt;li&gt;
+&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Export converted Bengali text as Portable Document Format(PDF)&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+
+&lt;p&gt;&lt;b&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Export as txt&lt;/span&gt;&lt;/b&gt;&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;
+&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Export converted Bengali text as .txt file&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;b&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Print&lt;/span&gt;&lt;/b&gt;&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;
+&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Use printer to print converted text&lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;&lt;b&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;More Options&lt;/span&gt;&lt;/b&gt;&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;
+&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Right click on any input or output file to explore other options&lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;&lt;/ul&gt;
+&lt;/li&gt;
+
+&lt;/ul&gt;
+&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections/>

@@ -6,6 +6,7 @@ Manual::Manual(QWidget *parent) :
     ui(new Ui::Manual)
 {
     ui->setupUi(this);
+    setWindowTitle("Instructions");
 }
 
 Manual::~Manual()

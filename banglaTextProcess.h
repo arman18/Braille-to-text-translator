@@ -42,12 +42,20 @@ class BanglaTextProcess
 
         string checkJointLetter(unordered_map<string, string> dd, vector<string> letters, int *i, int length)
         {
-            if(letters[*i] == "000100" && *i+2 < length)
+//            if(letters[*i] == "000100" && *i+2 < length)
+//            {
+//                *i += 2;
+//                //cout<<bangla.getHosonto().begin()->second<<" "<<bangla.getHosonto().begin()->first<<endl;
+//                //cout<<2222<<endl;
+//                return dd[letters[*i+1-2]] + bangla.getHosonto()["001011"] + dd[letters[*i+2-2]];
+//            }
+
+            if(letters[*i] == "000100" && *i+1 < length)
             {
-                *i += 2;
+                *i += 1;
                 //cout<<bangla.getHosonto().begin()->second<<" "<<bangla.getHosonto().begin()->first<<endl;
                 //cout<<2222<<endl;
-                return dd[letters[*i+1-2]] + bangla.getHosonto()["001011"] + dd[letters[*i+2-2]];
+                return dd[letters[*i+1-1]] + bangla.getHosonto()["001011"];// + dd[letters[*i+2-2]];
             }
 
             else if(letters[*i] == "000101" && *i+4 < length)

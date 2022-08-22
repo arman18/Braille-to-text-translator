@@ -18,6 +18,7 @@ TARGET = Application
 INCLUDEPATH +=  E:\opencv-build\install\include
 INCLUDEPATH +=  frontPage
 
+
 LIBS += E:\opencv-build\bin\libopencv_core460.dll
 LIBS += E:\opencv-build\bin\libopencv_highgui460.dll
 LIBS += E:\opencv-build\bin\libopencv_imgcodecs460.dll
@@ -25,7 +26,10 @@ LIBS += E:\opencv-build\bin\libopencv_imgproc460.dll
 LIBS += E:\opencv-build\bin\libopencv_calib3d460.dll
 LIBS += E:\opencv-build\bin\libopencv_objdetect460.dll
 
+
+#D:\Sadi\opencv\release\bin\
 SOURCES += \
+    aboutus.cpp \
     charreader.cpp \
     databundle.cpp \
     dotBoundaryFinder.cpp \
@@ -49,6 +53,7 @@ SOURCES += \
 
 HEADERS += \
     CommonSymbols.h \
+    aboutus.h \
     bangla.h \
     charreader.h \
     dotBoundaryFinder.h \
@@ -76,9 +81,8 @@ HEADERS += \
     utilfileanddir.h \
     utilimageprocfordialog.h
 
-
-
 FORMS += \
+    aboutus.ui \
     frontPage/frontpage.ui \
     mainwindow.ui \
     manual.ui

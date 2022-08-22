@@ -11,6 +11,7 @@
 #include "preprocessor.h"
 #include "scalevaraibles.h"
 #include <qstringlistmodel.h>
+#include <aboutus.h>
 #include <qmessagebox.h>
 #include<manual.h>
 #include "progressWidget/progresswidget.h"
@@ -58,6 +59,7 @@ private slots:
     void on_savePDFFiles();
     void on_Print();
     void about();
+    void about_us();
     void on_home();
 
 protected:
@@ -103,10 +105,10 @@ public:
     // --------------action for context menu------------
     QAction *actionselectAllForOpen,*actionselectAllForResult,*actionRemoveFileForResult,*actionSaveFiles;
     QAction *exportAsPdfForResult,*actionPrint;
-    QAction *actionHome;
     // ----------- QMenu -------------------
     QMenu *menu;
     QAction *actionSaveAsText,*actionSaveAsPdf;
+    QAction *actionHome;
     // image processor
     LineIdentifire lineIdentifire;
     Linereader lineReader;
@@ -114,5 +116,6 @@ public:
     ScaleVaraibles scaleVar;
     // ---- others ----------
     Manual abt;
+    AboutUs aboutus;
 };
 #endif // MAINWINDOW_H

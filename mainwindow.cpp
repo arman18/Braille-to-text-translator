@@ -24,7 +24,6 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
-
     setWindowState(Qt::WindowMaximized);
     setWindowIcon(QIcon(":/logo/brand_logo.jpg"));
     ui->setupUi(this);
@@ -33,10 +32,7 @@ MainWindow::MainWindow(QWidget *parent)
     createActions();
     initMemWidget();
     connectWidget();
-    ui->menubar->setStyleSheet("item:hover {background-color: rgb(52,73,94);border-top: none;border-left:none;border-bottom:none;border-left:3px solid  rgb(44,205,112);}");
-    ui->statusbar->showMessage("bsse1029@iit.du.ac.bd | bsse1003@iit.du.ac.bd");
-
-
+    //ui->statusbar->showMessage("bsse1029@iit.du.ac.bd | bsse1003@iit.du.ac.bd");
 }
 
 MainWindow::~MainWindow()
@@ -90,7 +86,7 @@ void MainWindow::createActions()
     actionSaveAsPdf = new QAction("as .pdf");
 
     actionHome= new QAction("Home");
-    ui->menubar->addAction(actionHome);
+    //ui->menubar->addAction(actionHome);
 
 }
 
@@ -100,9 +96,14 @@ void MainWindow::about()
 
 }
 
+void MainWindow::about_us()
+{
+    aboutus.show();
+}
+
 void MainWindow::on_home()
 {
-    qDebug()<<"action";
+    showFrontPage();
 }
 
 void MainWindow::initMemWidget()
@@ -157,6 +158,7 @@ void MainWindow::connectWidget()
     connect(ui->actionAddFiles,SIGNAL(triggered()),this,SLOT(on_addFiles()));
     connect(ui->actionRemoveFileForOpen,SIGNAL(triggered()),this,SLOT(removeForOpenView()));
     connect(ui->actionManuals,SIGNAL(triggered()),this,SLOT(about()));
+    connect(ui->actionAbout_Us,SIGNAL(triggered()),this,SLOT(about_us()));
     connect(actionRemoveFileForResult,SIGNAL(triggered()),this,SLOT(removeForResultView()));
     connect(actionselectAllForOpen,&QAction::triggered,[=](){ui->openListView->selectAll();});
     connect(actionselectAllForResult,&QAction::triggered,[=](){ui->resultListView->selectAll();});
@@ -409,6 +411,10 @@ void MainWindow::on_saveFiles()
     }
     ui->resultListView->setCurrentIndex(QModelIndex());
     isSaving = false;
+    QMessageBox::information(this, tr("Information"),
+     tr("Successfully saved to your specified folder.\n"),
+     QMessageBox::Ok);
+    return;
 }
 
 void MainWindow::on_saveBinFiles()
@@ -472,6 +478,10 @@ void MainWindow::on_savePDFFiles()
     painter.end();
     ui->resultListView->setCurrentIndex(QModelIndex());
     isSaving = false;
+    QMessageBox::information(this, tr("Information"),
+     tr("Successfully saved to your specified file.\n"),
+     QMessageBox::Ok);
+    return;
 }
 
 void MainWindow::on_Print()
@@ -488,6 +498,7 @@ void MainWindow::on_Print()
     }
     //------------------------------------------
     QPrinter printer;
+//    printer.setPaperSize(QPrinter::A4);
     printer.setPageSize(QPageSize::A4);
     int startIdx= midList.at(0).row();
     int endIdx = startIdx+midList.count()-1;
@@ -520,6 +531,7 @@ void MainWindow::on_Print()
     painter.end();
     ui->resultListView->setCurrentIndex(QModelIndex());
     isSaving = false;
+
 }
 
 void MainWindow::closeEvent(QCloseEvent *event)
@@ -685,7 +697,6 @@ void MainWindow::convertAndSave(QStringList m_openFileList,QImageList m_binImage
 //           QRegExp rx("([a-zA-Z0-9_ ])+");
 //           if(rx.indexIn(saveFileName)!=-1)
 //               saveFileName = rx.capturedTexts().at(0);
-
            saveFileName.append(".txt");
            nameList.append(saveFileName);
            resultModel->setStringList(nameList);
@@ -694,9 +705,11 @@ void MainWindow::convertAndSave(QStringList m_openFileList,QImageList m_binImage
            if(index==startIdxList){
                onResultListViewItemClicked(startIdxList);
 
+
            }
            QModelIndex mdlIdx = resultModel->index(startIdxList);
-           ui->resultListView->setCurrentIndex(mdlIdx);
+                           ui->resultListView->setCurrentIndex(mdlIdx);
+
 
        }
 
@@ -714,8 +727,8 @@ bool MainWindow::saveBinBrille(QStringList binData)
 //    if(rx.indexIn(saveFileName)!=-1)
 //        saveFileName = rx.capturedTexts().at(0);
 //    saveFileName.append(".txt");
-//    saveFileName = dir+"/"+saveFileName;
-//    QString tempFile=dir+"/"+"binDataFiles"+"/"+saveFileName;
+    //saveFileName = dir+"/"+saveFileName;
+    //QString tempFile=dir+"/"+"binDataFiles"+"/"+saveFileName;
     QString tempFile="bin.txt";
     QFile file( tempFile );
     if ( file.open(QIODevice::ReadWrite | QIODevice::Truncate | QIODevice::Text) ) // overriding every time
