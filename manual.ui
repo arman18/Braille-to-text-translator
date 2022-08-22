@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Manual</class>
+ <widget class="QWidget" name="Manual">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>583</width>
+    <height>376</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>10</y>
+     <width>351</width>
+     <height>331</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;h2&gt; User Manuals&lt;/h2&gt;
+&lt;dl&gt;
+&lt;dt&gt;Open Images (CTRL+O):&lt;/dt&gt;
+&lt;dd&gt;Inserts Brand new Image List. Current images will be removed&lt;/dd&gt;
+&lt;dt&gt;Add Images(CTRL+A):&lt;/dt&gt;
+&lt;dd&gt;Insert Images to current image list&lt;/dd&gt;
+&lt;dt&gt;Remove Images:&lt;/dt&gt;
+&lt;dd&gt;Remove images from our current image list&lt;/dd&gt;
+&lt;dt&gt;Select All:&lt;/dt&gt;
+&lt;dd&gt;Selecting all items from current list&lt;/dd&gt;
+&lt;dt&gt;Convert:&lt;/dt&gt;
+&lt;dd&gt;Convert only selected Braille images to its corresponding text&lt;/dd&gt;
+&lt;dt&gt;Convert All:&lt;/dt&gt;
+&lt;dd&gt;Convert all Braille images to its corresponding text&lt;/dd&gt;
+&lt;dt&gt;Export as PDF:&lt;/dt&gt;
+&lt;dd&gt;Export converted Bengali text as Portable Document Format(PDF)&lt;/dd&gt;
+&lt;dt&gt;Export as txt:&lt;/dt&gt;
+&lt;dd&gt;Export converted Bengali text as .txt file&lt;/dd&gt;
+&lt;dt&gt;Print:&lt;/dt&gt;
+&lt;dd&gt;Use printer to print converted text&lt;/dd&gt;
+&lt;/dl&gt;</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

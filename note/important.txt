@@ -1,0 +1,4 @@
+to change minimumdotWidth and maximumDotWidth:
+	dialog.cpp>>setDotProperty()>>minDotWidth,maxDotWidth
+to change errToFindDot :
+	dialog.cpp>>setDotProperty()>>minDotWidth,maxDotWidth
