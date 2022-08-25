@@ -10,8 +10,6 @@ class Linereader : public ScaleVaraibles
 public:
     Linereader();
     DataBundle readLine(QImage image, QPoint cnterCh);
-
-
 private:
     DataBundle readLineRightPart(QImage image, QPoint cnterCh);
     DataBundle readLineLeftPart(QImage image, QPoint cnterCh);

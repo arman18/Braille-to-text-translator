@@ -449,11 +449,11 @@ void MainWindow::on_savePDFFiles()
 
     QPainter painter;
 
-    int headerHeight = 100;
-    int footerHeight = 40;
-    int spacing = 20;
+    int headerHeight = 20;
+    int footerHeight = 20;
+    int spacing = 5;
     int bodyHeight = printer.height()-(headerHeight+footerHeight+2*spacing);
-    int indent = 30;
+    int indent = 10;
     QRect header(0,0,printer.width(),headerHeight);
     QRect body(indent,headerHeight+spacing,printer.width()-indent,bodyHeight);
     QRect footer(0,printer.height()-footerHeight,printer.width(),footerHeight);
@@ -466,7 +466,7 @@ void MainWindow::on_savePDFFiles()
     QImage ictLogo(":/logo/logo/ictLogo.png");
     painter.begin(&printer);
     QFontDatabase::addApplicationFont(":/Fonts/Font/kalpurush.ttf");
-    QFont font = QFont("Kalpurush", 20, 10);
+    QFont font = QFont("Kalpurush", 15, 5);
     painter.setFont(font);
     for(int i=startIdx;i<=endIdx;i++){
         painter.drawImage(QRect(0,0,120,80),iitLogo);
@@ -479,7 +479,7 @@ void MainWindow::on_savePDFFiles()
     ui->resultListView->setCurrentIndex(QModelIndex());
     isSaving = false;
     QMessageBox::information(this, tr("Information"),
-     tr("Successfully saved to your specified file.\n"),
+     tr("Successfully saved your PDF file.\n"),
      QMessageBox::Ok);
     return;
 }
@@ -656,6 +656,7 @@ void MainWindow::convertAndSave(QStringList m_openFileList,QImageList m_binImage
    progressWdgt.setMaximum(numberOfLineExpected,endIdxList-startIdxList+1);
 
    scaleVar._isDebug = ui->actionIsDebug->isChecked();
+//   scaleVar._isDebug = true;
    for(int index=startIdxList;index<=endIdxList;index++){
 
        QStringList binData;
