@@ -14,6 +14,8 @@ class BrailleToBangla: public BanglaTextProcess, public BrailleToText
 {
     private:
         Bangla bangla;
+        vector<string> notFirstLetter = { "্‌", "ং", "ঃ", "ঁ", "$"}; //"ঙ", "ঞ", "ণ", "ড়", "ঢ়", "য়", "ৎ",
+        //vector<string> notSingle = {"্‌", "ং", "ঃ", "ঁ", "$"};
 
     public:
         BrailleToBangla()
@@ -69,7 +71,8 @@ class BrailleToBangla: public BanglaTextProcess, public BrailleToText
             while(i < outText.size())
             {
                 //oFile<<outText[i]<<"\n";
-                if(bangla.getVol_spe().find(outText[i]) != bangla.getVol_spe().end() && i>0 && outText[i-1] == bangla.getVolume()["100000"])
+                if(bangla.getVol_spe().find(outText[i]) != bangla.getVol_spe().end() && i>0 && outText[i-1] == bangla.getVolume()["100000"]
+                        && (i-2>=0 && isConsonant(outText[i-2])))
                 {
                     //outText = outText.substr(0, i-1) + outText.substr(i, outText.size()-i+1);
                     outText.erase(outText.begin()+ i-1);
@@ -91,6 +94,11 @@ class BrailleToBangla: public BanglaTextProcess, public BrailleToText
                     outText[i+1] = bangla.getConsonant()["001000"];
                     i += 1;
                 }
+                else if(i == 0 &&
+                        find(notFirstLetter.begin(), notFirstLetter.end(), outText[i]) != notFirstLetter.end()){
+                    outText.erase(outText.begin()+i);
+                    i -= 1;
+                }
                 //if(bangla.getSymbolToKar().find(outText[i]) != bangla.getSymbolToKar().end()) cout<<"paise"<<endl;
                 i += 1;
             }
@@ -102,8 +110,14 @@ class BrailleToBangla: public BanglaTextProcess, public BrailleToText
         {
             string pattern = "([ঢ]*)";
             string match = text.erase(text.size() - 1);
+
             if (regex_match(match, regex(pattern)))
                 return "";
+
+//            else if(){
+
+//            }
+
             return text + " ";
             //return text;
         }
