@@ -82,6 +82,15 @@ class BrailleToBangla: public BanglaTextProcess, public BrailleToText
                     outText[i] = bangla.getSymbolToKar()[outText[i]];
                     //cout<<"yes"<<endl;
                 }
+
+                else if(outText[i] == bangla.getConsonant()["001000"] &&
+                        (i+1 < outText.size() && bangla.getSymbolToKar().find(outText[i+1]) != bangla.getSymbolToKar().end()) &&
+                        (i-1 >=0 && isConsonant(outText[i-1]))){
+
+                    outText[i] = bangla.getSymbolToKar()[outText[i+1]];
+                    outText[i+1] = bangla.getConsonant()["001000"];
+                    i += 1;
+                }
                 //if(bangla.getSymbolToKar().find(outText[i]) != bangla.getSymbolToKar().end()) cout<<"paise"<<endl;
                 i += 1;
             }

@@ -18,6 +18,9 @@ class BanglaTextProcess
         string english_sign = "000001";
         int bracket_count = 0;
 
+        unordered_map<string, string> dd = bangla.getBanglaDictionary();
+        unordered_map<string, string> characters = bangla.getAllAlphabets();
+
     public:
         BanglaTextProcess()
         {
@@ -209,8 +212,9 @@ class BanglaTextProcess
             int i = 0;
             vector<string> text;
             //unordered_map<string, string> hos = bangla.getHosonto();
-            unordered_map<string, string> dd = bangla.getBanglaDictionary();
-            unordered_map<string, string> characters = bangla.getAllAlphabets();
+
+//            unordered_map<string, string> dd = bangla.getBanglaDictionary();
+//            unordered_map<string, string> characters = bangla.getAllAlphabets();
 
             while(i < length)
             {
