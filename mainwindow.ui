@@ -67,7 +67,6 @@
           <property name="font">
            <font>
             <pointsize>35</pointsize>
-            <weight>75</weight>
             <bold>true</bold>
            </font>
           </property>
@@ -129,7 +128,6 @@ background-image: url(:/logo/background1.jpg);
             <property name="font">
              <font>
               <pointsize>12</pointsize>
-              <weight>75</weight>
               <bold>true</bold>
              </font>
             </property>
@@ -190,7 +188,6 @@ background-image: url(:/logo/background1.jpg);
               <property name="font">
                <font>
                 <pointsize>12</pointsize>
-                <weight>75</weight>
                 <bold>true</bold>
                </font>
               </property>
@@ -226,7 +223,6 @@ padding: 5px 10px;
               <property name="font">
                <font>
                 <pointsize>12</pointsize>
-                <weight>75</weight>
                 <bold>true</bold>
                </font>
               </property>
@@ -278,7 +274,7 @@ padding: 5px 10px;
           <widget class="QWidget" name="scrollAreaWidgetContents">
            <property name="geometry">
             <rect>
-             <x>2</x>
+             <x>0</x>
              <y>0</y>
              <width>248</width>
              <height>408</height>
@@ -342,7 +338,6 @@ Explore Help -&gt; Instruction for more options.</string>
             <property name="font">
              <font>
               <pointsize>12</pointsize>
-              <weight>75</weight>
               <bold>true</bold>
               <stylestrategy>PreferDefault</stylestrategy>
              </font>
@@ -419,7 +414,6 @@ Explore Help -&gt; Instruction for more options.</string>
               <property name="font">
                <font>
                 <pointsize>12</pointsize>
-                <weight>75</weight>
                 <bold>true</bold>
                </font>
               </property>
@@ -461,7 +455,6 @@ padding: 5px 20px;
               <property name="font">
                <font>
                 <pointsize>12</pointsize>
-                <weight>75</weight>
                 <bold>true</bold>
                </font>
               </property>
@@ -499,7 +492,7 @@ padding: 5px 20px;
      <x>0</x>
      <y>0</y>
      <width>850</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFiles">
