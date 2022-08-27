@@ -32,7 +32,14 @@ MainWindow::MainWindow(QWidget *parent)
     createActions();
     initMemWidget();
     connectWidget();
-    //ui->statusbar->showMessage("bsse1029@iit.du.ac.bd | bsse1003@iit.du.ac.bd");
+    QLabel *widgt = new QLabel("<font size=5>Sponsored by: ICT Division, Ministry of Posts, Telecommunication and Information Technology, Bangladesh</font>");
+    widgt->setStyleSheet("color:blue;");
+    widgt->setAlignment(Qt::AlignCenter);
+    ui->statusbar->addPermanentWidget(widgt,1);
+//    ui->statusbar->add("sponsored by: ICT Division, Ministry of Posts, Telecommunication and Information Technology, Bangladesh");
+//    qDebug()<<ui->statusbar->styleSheet();
+
+//    ui->statusbar->setStyleSheet("text-align: center;");
 }
 
 MainWindow::~MainWindow()
