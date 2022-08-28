@@ -337,13 +337,12 @@ void MainWindow::on_openFiles() // path not saved !
                              this,
                              "Select one or more files to open",
                              setting.value(DEFAULT_DIR_KEY).toString(),
-                             "Images (*.png *.xpm *.jpg *.jpeg)");
+                             "Images (*.png *.xpm *.jpg *.jpeg)",nullptr); //,QFileDialog::DontUseNativeDialog
     if(m_openFileList.empty()) return;
         QDir CurrentDir;
         setting.setValue(DEFAULT_DIR_KEY,CurrentDir.absoluteFilePath(m_openFileList[0]));
         m_currentImageDir = QFileInfo(m_openFileList[0]).dir();
     setting.endGroup();
-
     ui->imageLabel->clear();
     m_binImageList.clear();
     mainImageToBinImage(m_openFileList);
@@ -662,8 +661,8 @@ void MainWindow::convertAndSave(QStringList m_openFileList,QImageList m_binImage
    int numberOfLineExpected = 27;//row/m_distBetCh.y();
    progressWdgt.setMaximum(numberOfLineExpected,endIdxList-startIdxList+1);
 
-   scaleVar._isDebug = ui->actionIsDebug->isChecked();
-//   scaleVar._isDebug = true;
+//   scaleVar._isDebug = ui->actionIsDebug->isChecked();
+   scaleVar._isDebug = false;
    for(int index=startIdxList;index<=endIdxList;index++){
 
        QStringList binData;
@@ -698,20 +697,17 @@ void MainWindow::convertAndSave(QStringList m_openFileList,QImageList m_binImage
        }
 
        if(progressWdgt.cancelled()) goto endFunc;
-
        bool savedFile = saveBinBrille(binData);
        if(savedFile){
            QString saveFileName = QFileInfo(m_openFileList.at(index)).baseName();
-//           QRegExp rx("([a-zA-Z0-9_ ])+");
-//           if(rx.indexIn(saveFileName)!=-1)
-//               saveFileName = rx.capturedTexts().at(0);
+
            saveFileName.append(".txt");
            nameList.append(saveFileName);
            resultModel->setStringList(nameList);
            m_resultImagesList.append(image);
             // showing first coverted text
            if(index==startIdxList){
-               onResultListViewItemClicked(startIdxList);
+               onResultListViewItemClicked(nameList.length()-1);
 
 
            }

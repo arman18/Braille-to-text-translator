@@ -9,5 +9,6 @@
         <file>logo/towidgetBackground.png</file>
         <file>logo/brand_logo.jpg</file>
         <file>style/stylesheet.css</file>
+        <file>Font/kalpurush.ttf</file>
     </qresource>
 </RCC>

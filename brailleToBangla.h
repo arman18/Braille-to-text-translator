@@ -4,6 +4,8 @@
 #include<fstream>
 #include<unordered_map>
 #include<regex>
+#include <QCoreApplication>
+#include <QRegularExpression>
 #include "bangla.h"
 #include "banglaTextProcess.h"
 #include "brailleToText.h"
@@ -106,22 +108,40 @@ class BrailleToBangla: public BanglaTextProcess, public BrailleToText
             return returnText(outText);
         }
 
-        string postProcess(string text)
-        {
-            string pattern = "([ঢ]*)"; //"(.*[ঢ, চ]{2,}.*)";  //"(.*[.]{2,}.*)"; //"([ঢ]*)"; //([ঢ]*)
-            string match = text.erase(text.size() - 1);
+//        string postProcess(string text)
+//        {
+//            string pattern = ([ঢ]*); //"([ঢ]{2,}|[চ]{2,}|[অ][চ]{2,}.*)/u";      //"(.*[ঢ, চ]{2,}.*)";  //"(.*[.]{2,}.*)"; //"([ঢ]*)"; //([ঢ]*)
+//            string match = text.erase(text.size() - 1);
 
-            if (regex_match(match, regex(pattern)))
-                return "";
+//            if (regex_match(match, regex(pattern)))
+//                return "";
 
-//            else if(){
+////            else if(){
 
-//            }
+////            }
 
-            return text + " ";
-            //return text;
-        }
+//            return text + " ";
+//            //return text;
+//        }
 
+string postProcess(string text)
+{
+    QString pattern = "([ঢ]{2,}|[চ]{2,}|[অ]{2,}|[্‌]{2,}|^[চ][অ]$|^[চ][্]$|^[অ][্]$)";  //[অ][চ]{2,}.* | |[অ্] | [চ্] |[্‌]{2,} |[চঅ]
+    //string match = text.erase(text.size() - 1);
+    QString match = QString::fromStdString(text.erase(text.size() - 1));
+    QRegularExpressionMatch matched = QRegularExpression(pattern).match(match);
+
+    if(matched.hasMatch()){
+        return "";
+    }
+//    qDebug()<<hasMatch<<Qt::endl;
+
+
+
+
+ return text + " ";
+    //return text;
+}
 
 };
 

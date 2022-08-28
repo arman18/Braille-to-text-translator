@@ -9,7 +9,7 @@
 
 ImageLabel::ImageLabel(QWidget *parent)
 {
-    QFontDatabase::addApplicationFont(":/Fonts/Font/kalpurush.ttf");
+    QFontDatabase::addApplicationFont(":/Font/kalpurush.ttf");
     QFont font = QFont("Kalpurush", 20, 10);
     setFont(font);
     //imageLabel->setWordWrap(true);
