@@ -27,20 +27,21 @@ DataBundle DotProcessor::markDotByPoint(QImage image, QPoint point, bool mark)
     if((list[3]-list[1]) > 2*_maxDotWidth || (list[2]-list[0]) > 2*_maxDotWidth) mark = false; // because mark intersect others!!
     if((list[3]-list[1]) < _minDotWidth && (list[2]-list[0]) < _minDotWidth) mark = false;
     if(_isDebug && mark) markByBoundaries(originalImg,qRgb(128,128,128),list);
-    if(shouldPrint) qDebug()<<"dot size: "<<QPoint((list[3]-list[1]),(list[2]-list[0]))<<"minMax: "<<QPoint(_minDotWidth,_maxDotWidth)<<Qt::endl;
+    if(shouldPrint) qDebug()<<"markDotByPoint(): dot size: "<<QPoint((list[3]-list[1]),(list[2]-list[0]))<<"minMax: "<<QPoint(_minDotWidth,_maxDotWidth)<<Qt::endl;
 
     DataBundle dataBundle(originalImg);
                dataBundle.dotCenter = QPoint(x,y);
                if((list[3]-list[1]) < _minDotWidth && (list[2]-list[0]) < _minDotWidth){
+                   if(shouldPrint) qDebug()<<"markDotByPoint(): isValidDot:false shouldInCharIdentification = false"<<QPoint((list[3]-list[1]),(list[2]-list[0]))<<Qt::endl;
                     dataBundle.dotCenter = point;
                     dataBundle.isValidDot = false;
                     dataBundle.shouldInCharIdentification = false;
-                   if(shouldPrint) qDebug()<<"very small Dot: "<<QPoint(_minDotWidth,_minDotWidth)<<Qt::endl;
+                   if(shouldPrint) qDebug()<<"markDotByPoint(): very small Dot: "<<QPoint(_minDotWidth,_minDotWidth)<<Qt::endl;
                }
 
               else if(ulbrObjct.getArea()<30 || ((list[3]-list[1]) < (_minDotWidth*1.5) && (list[2]-list[0]) < (_minDotWidth*1.5))){
                    dataBundle.shouldInCharIdentification = false; //in next else you can use area to identify smalldot
-                   if(shouldPrint) qDebug()<<"medium dot should in line identification: "<<QPoint(_minDotWidth*1.5,_minDotWidth*1.5)<<Qt::endl;
+                   if(shouldPrint) qDebug()<<"markDotByPoint(): medium dot should in line identification: shouldInCharIdentification = false"<<QPoint(_minDotWidth*1.5,_minDotWidth*1.5)<<Qt::endl;
                }
 
                else if((list[3]-list[1]) > 2*_maxDotWidth || (list[2]-list[0]) > 2*_maxDotWidth){
@@ -48,13 +49,13 @@ DataBundle DotProcessor::markDotByPoint(QImage image, QPoint point, bool mark)
                     dataBundle.isVeryLarge = true;
                     dataBundle.image = image; // contains 1,1,1 pixel
                     dataBundle.dotCenter = point;
-                    if(shouldPrint) qDebug()<<"very large dot: "<<QPoint(2*_maxDotWidth,2*_maxDotWidth)<<Qt::endl;
+                    if(shouldPrint) qDebug()<<"markDotByPoint(): very large dot: shouldInCharIdentification = false"<<QPoint(2*_maxDotWidth,2*_maxDotWidth)<<Qt::endl;
                }
                else if((list[3]-list[1]) > _maxDotWidth || (list[2]-list[0]) > _maxDotWidth)
                {
                    dataBundle.isLargeDot = true;
                    dataBundle.shouldInCharIdentification = false;
-                   if(shouldPrint) qDebug()<<"large dot: "<<QPoint(_maxDotWidth,_maxDotWidth)<<Qt::endl;
+                   if(shouldPrint) qDebug()<<"markDotByPoint(): large dot: shouldInCharIdentification = false"<<QPoint(_maxDotWidth,_maxDotWidth)<<Qt::endl;
                    if((list[3]-list[1]) > _maxDotWidth && !((list[2]-list[0]) > _maxDotWidth))
                        dataBundle.dotCenter = QPoint(point.x(),y);
                    else if ((list[2]-list[0]) > _maxDotWidth && !((list[3]-list[1]) > _maxDotWidth))
@@ -110,7 +111,7 @@ DataBundle DotProcessor::searchForBlackDotAndMark(const QImage &image, QPoint po
 
     dataBundle.isValidDot = false; // invalid dot for lesser size than minimum requirement including no dot found
     dataBundle.dotCenter = point;
-    if(shouldPrint) qDebug()<<"no dot found"<<Qt::endl;
+    if(shouldPrint) qDebug()<<"searchForBlackDotAndMark(): no dot found"<<Qt::endl;
     return  dataBundle;
 }
 void DotProcessor::markByBoundaries(QImage &img, QRgb rgb, QList<int> &ULBR)

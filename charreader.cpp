@@ -109,11 +109,12 @@ DataBundle CharReader::getBrailleChPosLeft(QImage image, QPoint point)
          }
 
      }
-    if(shouldPrint) qDebug()<<"should in line identification(at least one medium dot): "<<shouldInCharCounter<<Qt::endl;
+    if(shouldPrint) qDebug()<<"getBrailleChPosLeft(): corresponding char"<<point<<" should in line identification(at least one medium dot): "<<shouldInCharCounter<<Qt::endl;
     DataBundle dataBundle(image);
                 dataBundle.numberOfDotInCh = dotCount;
                 dataBundle.charCenter = QPoint(totalPoint.x()/6,totalPoint.y()/6);
                 dataBundle.binChar = ch;
                 dataBundle.shouldInCharIdentification = shouldInCharCounter>1?true :false; // at least support by two
+    if(shouldPrint) qDebug()<<"getBrailleChPosLeft(): shouldInCharIdentification"<<dataBundle.shouldInCharIdentification<<Qt::endl;
     return  dataBundle;
 }

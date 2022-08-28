@@ -1,6 +1,5 @@
 #include "lineidentifire.h"
 #include "dotBoundaryFinder.h"
-
 LineIdentifire::LineIdentifire()
 {
 
@@ -8,6 +7,7 @@ LineIdentifire::LineIdentifire()
 
 DataBundle LineIdentifire::getNextChar(QImage image, QPoint startPt)
 {
+    if(shouldPrint) qDebug()<<"getnextcher()"<<startPt<<Qt::endl;
     int row = image.height();
     int col = image.width();
     DataBundle dataBundle;
@@ -17,17 +17,27 @@ DataBundle LineIdentifire::getNextChar(QImage image, QPoint startPt)
         {
             if(image.pixel(i,j)==qRgb(0,0,0))
             {
+                if(shouldPrint) qDebug()<<"getnextcher() founded a black pixel at: "<<QPoint(i,j)<<Qt::endl;
                 dataBundle = extractChar(image,QPoint(i,j));
                 if(dataBundle.isValidDot){
+                    if(shouldPrint) qDebug()<<"getnextcher() corresponding dot is valid: "<<QPoint(i,j)<<Qt::endl;
                     DotBoundaryFinder ulbrObjct(image);
                     QList<int> list = ulbrObjct.findBoundary(i,j);
                     if(hasEnoughDot(image,(list[0]+list[2])/2)) // go through middle
+                    {
+                        if(shouldPrint) qDebug()<<"getnextcher() corresponding character can be reference: "<<QPoint(i,list[0]+list[2])<<Qt::endl;
                         return dataBundle;
+                    }
+
                     else{
+                        if(shouldPrint) qDebug()<<"getnextcher() bad luck this line do not have enough dot: "<<QPoint(i,list[0]+list[2])<<Qt::endl;
                         i=col; //continue
                     }
                 }
-                else i+=20; //continue
+                else {
+                    if(shouldPrint) qDebug()<<"getnextcher() not a valid dot: "<<QPoint(i,j)<<Qt::endl;
+                    i+=20; //continue
+                }
 
             }
             //else if(_isDebug)  image.setPixel(i,j,qRgb(128,128,128));
@@ -64,7 +74,7 @@ DataBundle LineIdentifire::extractChar(QImage &image, QPoint blackPix)
         dataBundle.isValidDot = false;
         return dataBundle;
     }
-
+    if(shouldPrint) qDebug()<<"extractChar(): "<<"character is found for: "<<dataBundle.dotCenter<<Qt::endl;
     // okk character is also perfect
     // now mark this character and return
 
@@ -99,7 +109,7 @@ bool LineIdentifire::hasEnoughDot(QImage &image, int row)
                 || image.pixel(i,row)==qRgb(0,0,0)
                 || image.pixel(i,row+3)==qRgb(0,0,0)) {
             count++;
-            if(count==3) return true;
+            if(count==2) return true; // two means actually three dot present in that line
             i+=20;
         }
         //else image.setPixel(i,row,qRgb(128,128,128));

@@ -32,7 +32,7 @@ MainWindow::MainWindow(QWidget *parent)
     createActions();
     initMemWidget();
     connectWidget();
-    QLabel *widgt = new QLabel("<font size=5>Sponsored by: ICT Division, Ministry of Posts, Telecommunication and Information Technology, Bangladesh</font>");
+    QLabel *widgt = new QLabel("<font size=5>Courtesy: ICT Division, Ministry of Posts, Telecommunication and Information Technology, Bangladesh</font>");
     widgt->setStyleSheet("color:blue;");
     widgt->setAlignment(Qt::AlignCenter);
     ui->statusbar->addPermanentWidget(widgt,1);
@@ -673,12 +673,12 @@ void MainWindow::convertAndSave(QStringList m_openFileList,QImageList m_binImage
 
        for(int i=1;i<=numberOfLineExpected;i++){
 //           ImagePreProcessor::findingChar = true;
+//           qDebug()<<"finding next ref char starting at: "<<strtingPt<<Qt::endl;
            DataBundle dataBundle = lineIdentifire.getNextChar(image, strtingPt);
 //           ImagePreProcessor::findingChar = false;
-
            if(progressWdgt.cancelled()) goto endFunc;
            strtingPt = QPoint(strtingPt.x(),dataBundle.charCenter.y()+scaleVar._distBetCh.y()-scaleVar._distBetDot.y()-5);
-            //qDebug()<<strtingPt.y()<<" "<<dataBundle.charCenter<<" "<<dataBundle.isValidDot<<endl;
+//            qDebug()<<"reading line at: "<<strtingPt.y()<<" "<<dataBundle.charCenter<<" "<<dataBundle.isValidDot<<Qt::endl;
            if(dataBundle.isValidDot){
                dataBundle = lineReader.readLine(dataBundle.image,dataBundle.charCenter);
                if(progressWdgt.cancelled()) goto endFunc;

@@ -108,7 +108,7 @@ class BrailleToBangla: public BanglaTextProcess, public BrailleToText
 
         string postProcess(string text)
         {
-            string pattern = "([ঢ]*)";
+            string pattern = "([ঢ]*)"; //"(.*[ঢ, চ]{2,}.*)";  //"(.*[.]{2,}.*)"; //"([ঢ]*)"; //([ঢ]*)
             string match = text.erase(text.size() - 1);
 
             if (regex_match(match, regex(pattern)))

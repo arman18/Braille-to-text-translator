@@ -25,8 +25,8 @@ bool DataBundle::isValidCh()
 {
     //if(binChar[0]=='1' && binChar[5]=='1') return true; //diagonal two dots
     //if(binChar[2]=='1' && binChar[3]=='1') return true; //diagonal two dots
-    if(countOne(0,2)>1 && countOne(3,5)) return true; // from both side extract three dots
-    if(countOne(0,2) && countOne(3,5)>1) return true; // from both side extract three dots
+    if(countOne(0,2) && countOne(3,5)) return true; // from both side extract three dots
+    if(countOne(0,2) && countOne(3,5)) return true; // from both side extract three dots
     return  false;
 }
 

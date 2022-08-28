@@ -134,6 +134,9 @@ background-image: url(:/logo/background1.jpg);
             <property name="frameShape">
              <enum>QFrame::Box</enum>
             </property>
+            <property name="lineWidth">
+             <number>0</number>
+            </property>
             <property name="text">
              <string>Input Images</string>
             </property>
@@ -312,8 +315,7 @@ padding: 5px 10px;
 margin-top:0px;</string>
             </property>
             <property name="text">
-             <string>Go to Files -&gt; Open Images to start converting.
-Explore Help -&gt; Instruction for more options.</string>
+             <string/>
             </property>
             <property name="alignment">
              <set>Qt::AlignHCenter|Qt::AlignTop</set>
@@ -346,7 +348,7 @@ Explore Help -&gt; Instruction for more options.</string>
              <enum>QFrame::Box</enum>
             </property>
             <property name="lineWidth">
-             <number>1</number>
+             <number>0</number>
             </property>
             <property name="text">
              <string>Output Files</string>

@@ -11,7 +11,6 @@ class LineIdentifire : public ScaleVaraibles
 public:
     LineIdentifire();
     DataBundle getNextChar(QImage image, QPoint startPt);
-
 private:
     DataBundle extractChar(QImage &image, QPoint blackPix);
     DataBundle findCenter(const QImage &image,QPoint cntrBlckDot);
