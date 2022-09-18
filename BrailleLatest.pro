@@ -44,6 +44,7 @@ SOURCES += \
     mainwindow.cpp \
     manual.cpp \
     olistview.cpp \
+    password.cpp \
     preprocessor.cpp \
     progressWidget/progresswidget.cpp \
     charDebugWidget/chardebug.cpp \
@@ -73,6 +74,7 @@ HEADERS += \
     mainwindow.h \
     manual.h \
     olistview.h \
+    password.h \
     preprocessor.h \
     progressWidget/progresswidget.h \
     charDebugWidget/chardebug.h \

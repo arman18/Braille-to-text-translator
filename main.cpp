@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 
+#include <Password.h>
 #include <QApplication>
 
 int main(int argc, char *argv[])
@@ -14,5 +15,7 @@ int main(int argc, char *argv[])
         w.show();
     else return 0;
     w.show();
+    Password *pass = new Password(&w);
+    pass->checkPass();
     return a.exec();
 }
