@@ -27,7 +27,7 @@ void Password::checkPass()
         day = setting.value("pass_date",QDate::currentDate()).toDate().toJulianDay();
         setting.endGroup();
         if(pass==password) {
-//            qDebug()<<QDate::currentDate().toJulianDay()-day;
+            qDebug()<<QDate::currentDate().toJulianDay()-day;
                 if(QDate::currentDate().toJulianDay()-day<validity)
             return;
         }
