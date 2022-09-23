@@ -22,12 +22,12 @@ void Password::checkPass()
     QString pass;
     int day;
     QSettings setting("mySoft","braille");
-    setting.beginGroup("password");
+    setting.beginGroup("passworrd");
         pass = setting.value("pass","no").toString();
         day = setting.value("pass_date",QDate::currentDate()).toDate().toJulianDay();
         setting.endGroup();
         if(pass==password) {
-            qDebug()<<QDate::currentDate().toJulianDay()-day;
+//            qDebug()<<QDate::currentDate().toJulianDay()-day;
                 if(QDate::currentDate().toJulianDay()-day<validity)
             return;
         }
@@ -43,7 +43,7 @@ void Password::keyPressEvent(QKeyEvent *e)
         QString input = text();
         if(input==password){
             QSettings setting("mySoft","braille");
-                setting.beginGroup("password");
+                setting.beginGroup("passworrd");
                 setting.setValue("pass",input);
                 setting.setValue("pass_date",QDate::currentDate());
                 setting.endGroup();

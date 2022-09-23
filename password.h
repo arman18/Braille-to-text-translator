@@ -11,7 +11,7 @@ public:
     void checkPass();
     void keyPressEvent(QKeyEvent *e);
 public:
-    QString password = "myPass";
+    QString password = "iit123du";
     int validity = 365;
 };
 
