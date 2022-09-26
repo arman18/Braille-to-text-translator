@@ -396,16 +396,22 @@ void MainWindow::on_saveFiles()
                                                       "/home",
                                                      QFileDialog::ShowDirsOnly
                                                      | QFileDialog::DontResolveSymlinks);
+    if(dir==""){
+        isSaving = false;
+        return ;
+    }
 
     int startIdx= midList.at(0).row();
     int endIdx = startIdx+midList.count()-1;
-//    qDebug()<<startIdx<<" "<<endIdx<<endl;
+
     QString fullPath;
     for(int i=startIdx;i<=endIdx;i++){
         fullPath = UtilFileAndDir::getFileName(dir,nameList.at(i));
-        if(fullPath.isEmpty()) return ; // directory is delected by someone
+        if(fullPath.isEmpty()) {
+            isSaving = false;
+            return ; // directory is delected by someone
+        }
         QFile file(fullPath);
-//        qDebug()<<fullPath<<endl;
         if ( file.open(QIODevice::WriteOnly | QIODevice::Text) ) // overriding every time
         {
             QTextStream stream( &file );
@@ -444,6 +450,10 @@ void MainWindow::on_savePDFFiles()
     //------------------------------------------
     QString fileName = QFileDialog::getSaveFileName((QWidget* )0, "Export PDF", QString(), "*.pdf");
     if (QFileInfo(fileName).suffix().isEmpty()) { fileName.append(".pdf"); }
+    if(fileName==".pdf") {
+        isSaving = false;
+        return;
+    }
     QPrinter printer;
     printer.setOutputFormat(QPrinter::PdfFormat);
     printer.setOutputFileName(fileName);
@@ -470,7 +480,14 @@ void MainWindow::on_savePDFFiles()
 //    painter.drawRect(footer);
     QImage iitLogo(":/logo/logo/iitLogo.png");
     QImage ictLogo(":/logo/logo/ictLogo.png");
-    painter.begin(&printer);
+    bool ok = painter.begin(&printer);
+    if(!ok){
+        isSaving = false;
+        QMessageBox::information(this, tr("Information"),
+         tr("Can't save. This file is opened by another application.\n"),
+         QMessageBox::Ok);
+        return;
+    }
     QFontDatabase::addApplicationFont(":/Fonts/Font/kalpurush.ttf");
     QFont font = QFont("Kalpurush", 15, 5);
     painter.setFont(font);
