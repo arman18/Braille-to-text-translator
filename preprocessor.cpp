@@ -24,6 +24,10 @@ QImage PreProcessor::mainImageToBinImage(QString fileName)
     Mat image, gray, blur, median, blackWhite, erosion, dilation;
 
     image = imread(file, IMREAD_COLOR);
+
+//    string out1 = "out_bin1.png";
+//    imwrite(out1, image);
+
     Rect crop_region(25, 25, image.cols-25, image.rows-25);
     //Rect crop_region(25, 100, image.cols-30, image.rows-130);
     image = image(crop_region);
@@ -46,7 +50,7 @@ QImage PreProcessor::mainImageToBinImage(QString fileName)
     //string outFile = "out_" + file;
     QString str = QString::fromUtf8(out.c_str());
     QImage qimg;
-//    qimg.load(str, "png");
-//    qimg.save ( "pre1.png", 0, -1 );
+    qimg.load(str, "png");
+//    qimg.save ( str+".png", 0, -1 );
     return qimg;  //QImage(str); // you must convert your image to QImage then return it
 }

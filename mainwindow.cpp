@@ -721,7 +721,7 @@ void MainWindow::convertAndSave(QStringList m_openFileList,QImageList m_binImage
            saveFileName.append(".txt");
            nameList.append(saveFileName);
            resultModel->setStringList(nameList);
-//           image.save("pre2.png");
+//           image.save(saveFileName+".png");
            m_resultImagesList.append(image);
             // showing first coverted text
            if(index==startIdxList){
