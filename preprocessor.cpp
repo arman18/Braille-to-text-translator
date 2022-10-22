@@ -46,8 +46,7 @@ QImage PreProcessor::mainImageToBinImage(QString fileName)
     //string outFile = "out_" + file;
     QString str = QString::fromUtf8(out.c_str());
     QImage qimg;
-    qimg.load(str, "png");
-    //cout<<"qimage loaded"<<endl;
-
+//    qimg.load(str, "png");
+//    qimg.save ( "pre1.png", 0, -1 );
     return qimg;  //QImage(str); // you must convert your image to QImage then return it
 }
