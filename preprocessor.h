@@ -2,10 +2,10 @@
 #define PREPROCESSOR_H
 
 #include <qimage.h>
+#include "scalevaraibles.h"
 
 
-
-class PreProcessor
+class PreProcessor: public ScaleVaraibles
 {
 public:
     PreProcessor();

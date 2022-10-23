@@ -40,6 +40,8 @@ MainWindow::MainWindow(QWidget *parent)
 //    qDebug()<<ui->statusbar->styleSheet();
 
 //    ui->statusbar->setStyleSheet("text-align: center;");
+
+    scaleVar._isDebug = false; // it will draw line on image as well as save that image.
 }
 
 MainWindow::~MainWindow()
@@ -679,7 +681,7 @@ void MainWindow::convertAndSave(QStringList m_openFileList,QImageList m_binImage
    progressWdgt.setMaximum(numberOfLineExpected,endIdxList-startIdxList+1);
 
 //   scaleVar._isDebug = ui->actionIsDebug->isChecked();
-   scaleVar._isDebug = false;
+
    for(int index=startIdxList;index<=endIdxList;index++){
 
        QStringList binData;
@@ -721,7 +723,7 @@ void MainWindow::convertAndSave(QStringList m_openFileList,QImageList m_binImage
            saveFileName.append(".txt");
            nameList.append(saveFileName);
            resultModel->setStringList(nameList);
-//           image.save(saveFileName+".png");
+           if(scaleVar._isDebug) image.save("3.png"); // 3. reference marked image
            m_resultImagesList.append(image);
             // showing first coverted text
            if(index==startIdxList){
