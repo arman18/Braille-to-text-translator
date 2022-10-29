@@ -10,13 +10,14 @@ This is a desktop software which takes scanned Braille images as input and produ
 - This system provides a way to export output as text, PDF file or directly can print out
 
 # Braille Poster:
-This poster achieved second position for best poster award at Dhaka University Research-Publication fair 2022.
+This poster describes the overall process of our Software and achieved second position for best poster award at Dhaka University Research-Publication fair 2022.
 
 ![A0_Braille_poster](https://user-images.githubusercontent.com/43715453/198814698-f6bdd679-628c-4e98-810d-c4adc5caf9be.png)
 
 # Demo Video:
 We also have a demo video of our software. 
 
-               Click Image Below to Play This Vieo
+               Click Image Below To Play This Video
+
 
 [<img src="https://user-images.githubusercontent.com/43715453/198815272-9aea11d4-ec55-43d1-9114-1399bbc86812.png" width="50%">](https://drive.google.com/file/d/1fAiJcnFrVC96ojH4mpfDXFuZ5f5lA82w/view?usp=sharing)
